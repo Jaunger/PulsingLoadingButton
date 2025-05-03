@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <com.daniel.pulsingbutton.PulsingLoadingButton
+        android:id="@+id/demoButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        app:buttonText="Login"
+        app:pulseColor="#55FF5722"
+        app:loadingIcon="@drawable/ic_spinner"
+        app:successIcon="@drawable/ic_check" />
+</LinearLayout>

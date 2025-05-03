@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PulsingLoadingButton">
+    <attr name="buttonText" format="string" />
+    <attr name="pulseColor" format="color" />
+    <attr name="loadingIcon" format="reference" />
+    <attr name="successIcon" format="reference" />
+</declare-styleable>
+</resources>
