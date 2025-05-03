@@ -7,7 +7,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -109,6 +111,23 @@ public class PulsingLoadingButton extends FrameLayout {
         }
     }
 
+    private void startSpinnerAnimation() {
+        RotateAnimation rotate = new RotateAnimation(
+                0f, 360f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+        );
+        rotate.setDuration(1000);
+        rotate.setRepeatCount(Animation.INFINITE);
+        rotate.setInterpolator(new LinearInterpolator());
+        iconView.startAnimation(rotate);
+    }
+
+    private void stopSpinnerAnimation() {
+        iconView.clearAnimation();
+    }
+
+
     public void setState(State state) {
         this.currentState = state;
 
@@ -117,23 +136,22 @@ public class PulsingLoadingButton extends FrameLayout {
                 textView.setVisibility(VISIBLE);
                 textView.setText(R.string.submit);
                 iconView.setVisibility(GONE);
+                stopSpinnerAnimation();
                 pulseAnimator.cancel();
                 break;
 
             case LOADING:
                 textView.setVisibility(GONE);
                 iconView.setVisibility(VISIBLE);
-                if (loadingIconRes != 0) {
-                    iconView.setImageResource(loadingIconRes);
-                } else {
-                    iconView.setImageDrawable(null); // clear any fallback
-                }
+                iconView.setImageResource(R.drawable.ic_spinner);
+                startSpinnerAnimation();
                 pulseAnimator.start();
                 break;
 
             case SUCCESS:
                 textView.setVisibility(GONE);
                 iconView.setVisibility(VISIBLE);
+                stopSpinnerAnimation();
                 if (successIconRes != 0) {
                     iconView.setImageResource(successIconRes);
                 } else {
@@ -145,4 +163,5 @@ public class PulsingLoadingButton extends FrameLayout {
 
         invalidate();
     }
+
 }

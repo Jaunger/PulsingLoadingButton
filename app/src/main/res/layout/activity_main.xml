@@ -12,6 +12,6 @@
         android:layout_height="60dp"
         app:buttonText="Login"
         app:pulseColor="#55FF5722"
-        app:loadingIcon="@drawable/ic_spinner"
-        app:successIcon="@drawable/ic_check" />
+        app:successIcon="@drawable/ic_check"
+   />
 </LinearLayout>

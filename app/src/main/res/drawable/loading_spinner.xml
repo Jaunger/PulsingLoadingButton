@@ -1,6 +1,0 @@
-<ImageView android:id="@+id/spinnerImageView"
-    android:layout_width="48dp"
-    android:layout_height="48dp"
-    android:src="@drawable/ic_spinner"
-    android:layout_gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
