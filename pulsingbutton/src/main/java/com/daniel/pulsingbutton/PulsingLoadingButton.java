@@ -143,7 +143,11 @@ public class PulsingLoadingButton extends FrameLayout {
             case LOADING:
                 textView.setVisibility(GONE);
                 iconView.setVisibility(VISIBLE);
-                iconView.setImageResource(R.drawable.ic_spinner);
+                if (loadingIconRes != 0) {
+                    iconView.setImageResource(loadingIconRes);
+                }
+                else
+                    iconView.setImageResource(R.drawable.ic_spinner);
                 startSpinnerAnimation();
                 pulseAnimator.start();
                 break;
