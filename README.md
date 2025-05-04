@@ -1,13 +1,11 @@
 # PulsingLoadingButton 🚀
 
-[![](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/danielpulsingbutton)
+[![](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Jaunger/PulsingLoadingButton)
 [![](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![](https://img.shields.io/badge/platform-Android-green)](https://developer.android.com)
 [![](https://img.shields.io/badge/minSdk-21-yellow)](https://developer.android.com)
 
 A sleek and customizable Android `View` that combines an animated pulsing effect with a loading spinner and success state. Great for form submission buttons or async actions.
-
-![demo](https://user-images.githubusercontent.com/yourusername/demo.gif)
 
 ---
 
@@ -37,7 +35,11 @@ implementation(project(":pulsingbutton"))
 ---
 
 ## 📷 Demo
-  ![demo](https://user-images.githubusercontent.com/yourusername/demo.gif)
+
+<p align="Left">
+  <img src="https://github.com/user-attachments/assets/a8f56098-06fb-4b92-adf9-81ceeaa916fd" width="200" height ="400" alt="Demo GIF"/>
+</p>
+  
 ---
 
 ## 📋 Usage
@@ -51,9 +53,12 @@ implementation(project(":pulsingbutton"))
     android:layout_height="wrap_content"
     app:buttonText="Submit"
     app:pulseColor="@color/blue"
-    app:loadingIcon="@drawable/ic_spinner"   <!-- Optional -->
-    app:successIcon="@drawable/ic_check_circle" />
+    app:successIcon="@drawable/ic_check_circle" 
+    app:loadingIcon="@drawable/ic_spinner"   
+    app:buttonColor="#6B5757"               
+/>
 ```
+> All of the attributes are optional since all have default values.
 
 > If `app:loadingIcon` is omitted, a default `ic_spinner` will be used and rotated to simulate a spinner.
 
@@ -75,11 +80,12 @@ button.setState(PulsingLoadingButton.State.IDLE);
 ### Attributes
 
 | Attribute       | Description                         | Default                   |
-|----------------|-------------------------------------|---------------------------|
+|-----------------|-------------------------------------|---------------------------|
 | `buttonText`    | Text shown in idle state            | "Submit"                  |
 | `pulseColor`    | Color of pulsing animation          | `#552196F3`               |
 | `loadingIcon`   | Drawable to spin while loading      | `ic_spinner` (built-in)   |
-| `successIcon`   | Drawable shown on success           | Checkmark (system default)|
+| `successIcon`   | Drawable shown on success           | `checkbox_on_background`  |
+| `buttonColor`   | Drawable shown on success           | `0xFF6200EE`              |
 
 ---
 
