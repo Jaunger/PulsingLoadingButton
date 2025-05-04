@@ -55,6 +55,7 @@ public class PulsingLoadingButton extends FrameLayout {
 
         int pulseColor = 0x552196F3;
         String buttonText = "Submit";
+        int buttonColor = 0xFF6200EE;
 
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.PulsingLoadingButton);
@@ -62,8 +63,12 @@ public class PulsingLoadingButton extends FrameLayout {
             pulseColor = a.getColor(R.styleable.PulsingLoadingButton_pulseColor, pulseColor);
             loadingIconRes = a.getResourceId(R.styleable.PulsingLoadingButton_loadingIcon, 0);
             successIconRes = a.getResourceId(R.styleable.PulsingLoadingButton_successIcon, 0);
+            buttonColor = a.getColor(R.styleable.PulsingLoadingButton_buttonColor, buttonColor);
             a.recycle();
         }
+
+        // Set background color
+        setBackgroundColor(buttonColor);
 
         // Pulse circle paint
         pulsePaint = new Paint();
